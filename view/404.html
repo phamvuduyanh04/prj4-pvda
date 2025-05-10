@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Không Tìm Thấy Trang | Louis Vuitton</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            z-index: 100;
+        }
+        
+        .logo {
+            width: 180px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-item {
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+        
+        .icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .icon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 70vh;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .error-code {
+            font-size: 120px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        
+        .error-title {
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .error-message {
+            font-size: 16px;
+            color: #666;
+            max-width: 500px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            margin: 0 10px;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: #000;
+            border: 1px solid #000;
+        }
+        
+        .btn:hover {
+            background-color: #333;
+        }
+        
+        .btn-outline:hover {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .suggestions {
+            margin-top: 60px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .suggestions-title {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        
+        .suggestion-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .suggestion-item {
+            cursor: pointer;
+        }
+        
+        .suggestion-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        
+        .suggestion-title {
+            font-size: 16px;
+            font-weight: 400;
+        }
+        
+        .footer {
+            background-color: #f5f5f5;
+            padding: 60px 40px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .footer-link {
+            display: block;
+            color: #666;
+            text-decoration: none;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .footer-link:hover {
+            color: #000;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #e5e5e5;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 1024px) {
+            .suggestion-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .error-code {
+                font-size: 80px;
+            }
+            
+            .error-title {
+                font-size: 22px;
+            }
+            
+            .suggestion-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="/api/placeholder/180/50" alt="Louis Vuitton" />
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="#" class="nav-item">Nữ</a>
+            <a href="#" class="nav-item">Nam</a>
+            <a href="#" class="nav-item">Trang sức & Phụ kiện</a>
+            <a href="#" class="nav-item">Đồng hồ</a>
+            <a href="#" class="nav-item">Nước hoa</a>
+            <a href="#" class="nav-item">Nghệ thuật sống</a>
+        </nav>
+        <div class="icons">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 20H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3"></path>
+                    <path d="M16 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"></path>
+                    <path d="M9 12h6"></path>
+                    <path d="M12 9v6"></path>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <div class="error-container">
+        <h1 class="error-code">404</h1>
+        <h2 class="error-title">KHÔNG TÌM THẤY TRANG</h2>
+        <p class="error-message">
+            Rất tiếc, trang bạn đang tìm kiếm không tồn tại hoặc đã được di chuyển. 
+            Điều này có thể xảy ra do đường dẫn không chính xác hoặc trang đã bị xóa.
+        </p>
+        <div>
+            <a href="index.html" class="btn">Trở về trang chủ</a>
+            <a href="collections.html" class="btn btn-outline">Xem bộ sưu tập</a>
+        </div>
+    </div>
+
+    <div class="suggestions">
+        <h3 class="suggestions-title">CÓ THỂ BẠN SẼ THÍCH</h3>
+        <div class="suggestion-grid">
+            <div class="suggestion-item">
+                <img src="/api/placeholder/280/250" alt="Suggestion 1" class="suggestion-image" />
+                <h4 class="suggestion-title">Túi Neverfull MM</h4>
+            </div>
+            <div class="suggestion-item">
+                <img src="/api/placeholder/280/250" alt="Suggestion 2" class="suggestion-image" />
+                <h4 class="suggestion-title">Ví Zippy</h4>
+            </div>
+            <div class="suggestion-item">
+                <img src="/api/placeholder/280/250" alt="Suggestion 3" class="suggestion-image" />
+                <h4 class="suggestion-title">Đồng hồ Tambour</h4>
+            </div>
+            <div class="suggestion-item">
+                <img src="/api/placeholder/280/250" alt="Suggestion 4" class="suggestion-image" />
+                <h4 class="suggestion-title">Khăn choàng Monogram</h4>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Thế giới Louis Vuitton</h3>
+                <a href="#" class="footer-link">Lịch sử thương hiệu</a>
+                <a href="#" class="footer-link">Bảo tàng Louis Vuitton</a>
+                <a href="#" class="footer-link">Tài trợ nghệ thuật</a>
+                <a href="#" class="footer-link">Tin tức & Sự kiện</a>
+            </div>
+            <div class="footer-column">
+                <h3>Dịch vụ</h3>
+                <a href="#" class="footer-link">Chăm sóc sản phẩm</a>
+                <a href="#" class="footer-link">Dịch vụ cá nhân hóa</a>
+                <a href="#" class="footer-link">Hướng dẫn mua sắm</a>
+                <a href="#" class="footer-link">Đổi & Trả hàng</a>
+            </div>
+            <div class="footer-column">
+                <h3>Cửa hàng Louis Vuitton</h3>
+                <a href="#" class="footer-link">Tìm cửa hàng</a>
+                <a href="#" class="footer-link">Dịch vụ khách hàng</a>
+                <a href="#" class="footer-link">Đặt lịch hẹn</a>
+                <a href="#" class="footer-link">Sự kiện tại cửa hàng</a>
+            </div>
+            <div class="footer-column">
+                <h3>Kết nối</h3>
+                <a href="#" class="footer-link">Đăng ký nhận bản tin</a>
+                <a href="#" class="footer-link">Instagram</a>
+                <a href="#" class="footer-link">Facebook</a>
+                <a href="#" class="footer-link">Twitter</a>
+                <a href="#" class="footer-link">YouTube</a>
+            </div>
+        </div>
+        <div class="copyright">
+            © Louis Vuitton 2025. Bảo lưu mọi quyền.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('404 page loaded');
+            // Có thể thêm code để ghi log lỗi hoặc thông báo cho server
+            
+            // Ví dụ: theo dõi lỗi 404
+            if (typeof window !== 'undefined') {
+                const path = window.location.pathname;
+                console.log('Path not found:', path);
+                
+                // Trong ứng dụng thực tế, bạn có thể gửi thông tin này về server
+                // fetch('/api/log-404', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({ path })
+                // });
+            }
+        });
+    </script>
+</body>
+</html>

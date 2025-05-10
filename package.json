@@ -1,0 +1,26 @@
+{
+  "name": "louis-vuitton-clone",
+  "version": "1.0.0",
+  "description": "Clone trang web Louis Vuitton sử dụng Node.js và Express",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "louis vuitton",
+    "ecommerce",
+    "nodejs",
+    "express"
+  ],
+  "author": "Bạn",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

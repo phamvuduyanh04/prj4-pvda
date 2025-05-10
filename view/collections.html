@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bộ Sưu Tập | Louis Vuitton</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            z-index: 100;
+        }
+        
+        .logo {
+            width: 180px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-item {
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+        
+        .icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .icon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .hero-section {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-content {
+            position: absolute;
+            bottom: 60px;
+            left: 60px;
+            color: #fff;
+            max-width: 500px;
+        }
+        
+        .hero-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        
+        .hero-subtitle {
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 60px 40px;
+        }
+        
+        .collection-item {
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .collection-image {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .collection-item:hover .collection-image {
+            transform: scale(1.05);
+        }
+        
+        .collection-info {
+            padding: 20px 0;
+        }
+        
+        .collection-title {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+        
+        .collection-desc {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 400;
+            margin: 60px 0 30px;
+        }
+        
+        .footer {
+            background-color: #f5f5f5;
+            padding: 60px 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .footer-link {
+            display: block;
+            color: #666;
+            text-decoration: none;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .footer-link:hover {
+            color: #000;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #e5e5e5;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 1024px) {
+            .collection-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content {
+                left: 20px;
+                bottom: 40px;
+            }
+            
+            .collection-grid {
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="/api/placeholder/180/50" alt="Louis Vuitton" />
+        </div>
+        <nav class="nav-links">
+            <a href="#" class="nav-item">Nữ</a>
+            <a href="#" class="nav-item">Nam</a>
+            <a href="#" class="nav-item">Trang sức & Phụ kiện</a>
+            <a href="#" class="nav-item">Đồng hồ</a>
+            <a href="#" class="nav-item">Nước hoa</a>
+            <a href="#" class="nav-item">Nghệ thuật sống</a>
+        </nav>
+        <div class="icons">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 20H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3"></path>
+                    <path d="M16 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"></path>
+                    <path d="M9 12h6"></path>
+                    <path d="M12 9v6"></path>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <img src="/api/placeholder/1200/800" alt="Collection Hero" class="hero-image" />
+        <div class="hero-content">
+            <h1 class="hero-title">Bộ Sưu Tập Xuân Hè 2025</h1>
+            <p class="hero-subtitle">Khám phá những tác phẩm mới nhất từ Louis Vuitton, thể hiện sự sang trọng tinh tế và đẳng cấp vượt thời gian.</p>
+            <a href="#" class="btn">Khám phá ngay</a>
+        </div>
+    </div>
+
+    <h2 class="section-title">BỘ SƯU TẬP MỚI NHẤT</h2>
+
+    <div class="collection-grid">
+        <div class="collection-item">
+            <img src="/api/placeholder/400/450" alt="Collection 1" class="collection-image" />
+            <div class="collection-info">
+                <h3 class="collection-title">Capucines</h3>
+                <p class="collection-desc">Biểu tượng sang trọng của Louis Vuitton</p>
+            </div>
+        </div>
+        <div class="collection-item">
+            <img src="/api/placeholder/400/450" alt="Collection 2" class="collection-image" />
+            <div class="collection-info">
+                <h3 class="collection-title">Dauphine</h3>
+                <p class="collection-desc">Vẻ đẹp vượt thời gian</p>
+            </div>
+        </div>
+        <div class="collection-item">
+            <img src="/api/placeholder/400/450" alt="Collection 3" class="collection-image" />
+            <div class="collection-info">
+                <h3 class="collection-title">Monogram Legacy</h3>
+                <p class="collection-desc">Di sản kinh điển</p>
+            </div>
+        </div>
+        <div class="collection-item">
+            <img src="/api/placeholder/400/450" alt="Collection 4" class="collection-image" />
+            <div class="collection-info">
+                <h3 class="collection-title">Twist</h3>
+                <p class="collection-desc">Sáng tạo và hiện đại</p>
+            </div>
+        </div>
+        <div class="collection-item">
+            <img src="/api/placeholder/400/450" alt="Collection 5" class="collection-image" />
+            <div class="collection-info">
+                <h3 class="collection-title">Tambour</h3>
+                <p class="collection-desc">Đẳng cấp thời trang</p>
+            </div>
+        </div>
+        <div class="collection-item">
+            <img src="/api/placeholder/400/450" alt="Collection 6" class="collection-image" />
+            <div class="collection-info">
+                <h3 class="collection-title">Horizon</h3>
+                <p class="collection-desc">Đồng hành trong mọi hành trình</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Thế giới Louis Vuitton</h3>
+                <a href="#" class="footer-link">Lịch sử thương hiệu</a>
+                <a href="#" class="footer-link">Bảo tàng Louis Vuitton</a>
+                <a href="#" class="footer-link">Tài trợ nghệ thuật</a>
+                <a href="#" class="footer-link">Tin tức & Sự kiện</a>
+            </div>
+            <div class="footer-column">
+                <h3>Dịch vụ</h3>
+                <a href="#" class="footer-link">Chăm sóc sản phẩm</a>
+                <a href="#" class="footer-link">Dịch vụ cá nhân hóa</a>
+                <a href="#" class="footer-link">Hướng dẫn mua sắm</a>
+                <a href="#" class="footer-link">Đổi & Trả hàng</a>
+            </div>
+            <div class="footer-column">
+                <h3>Cửa hàng Louis Vuitton</h3>
+                <a href="#" class="footer-link">Tìm cửa hàng</a>
+                <a href="#" class="footer-link">Dịch vụ khách hàng</a>
+                <a href="#" class="footer-link">Đặt lịch hẹn</a>
+                <a href="#" class="footer-link">Sự kiện tại cửa hàng</a>
+            </div>
+            <div class="footer-column">
+                <h3>Kết nối</h3>
+                <a href="#" class="footer-link">Đăng ký nhận bản tin</a>
+                <a href="#" class="footer-link">Instagram</a>
+                <a href="#" class="footer-link">Facebook</a>
+                <a href="#" class="footer-link">Twitter</a>
+                <a href="#" class="footer-link">YouTube</a>
+            </div>
+        </div>
+        <div class="copyright">
+            © Louis Vuitton 2025. Bảo lưu mọi quyền.
+        </div>
+    </footer>
+
+    <script>
+        // Khi tích hợp với Node.js, bạn có thể thêm script để xử lý dữ liệu từ server
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Collections page loaded');
+            // Ở đây có thể thêm code JavaScript để tương tác với API từ Node.js
+            // Ví dụ: fetch('/api/collections').then(res => res.json()).then(data => renderCollections(data));
+        });
+        
+        // Hàm mẫu để render dữ liệu từ API
+        function renderCollections(data) {
+            // Xử lý dữ liệu nhận được từ server
+            console.log('Collections data:', data);
+        }
+    </script>
+</body>
+</html>
