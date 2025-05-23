@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng - Louis Vuitton</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: #000;
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #fff;
+        }
+
+        .breadcrumb span {
+            color: #666;
+        }
+
+        /* Cart Section */
+        .cart-section {
+            padding: 40px 0;
+        }
+
+        .cart-title {
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .cart-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        /* Cart Items */
+        .cart-items {
+            background: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .cart-items h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            font-weight: 500;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .cart-item:hover {
+            background: #f8f9fa;
+            margin: 0 -15px;
+            padding: 20px 15px;
+            border-radius: 8px;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .item-name {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .item-price {
+            font-size: 16px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .item-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .quantity-btn {
+            background: #f8f9fa;
+            border: none;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background: #e9ecef;
+        }
+
+        .quantity-input {
+            width: 60px;
+            height: 35px;
+            border: none;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .remove-btn {
+            background: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .remove-btn:hover {
+            background: #c82333;
+            transform: translateY(-1px);
+        }
+
+        .item-total {
+            text-align: right;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Cart Summary */
+        .cart-summary {
+            background: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .summary-title {
+            font-size: 20px;
+            margin-bottom: 25px;
+            font-weight: 500;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .summary-row.total {
+            font-size: 20px;
+            font-weight: 600;
+            border-top: 2px solid #333;
+            padding-top: 20px;
+            margin-top: 25px;
+        }
+
+        .coupon-section {
+            margin: 25px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .coupon-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .coupon-btn {
+            width: 100%;
+            background: #6c757d;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+
+        .coupon-btn:hover {
+            background: #5a6268;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .checkout-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .continue-shopping {
+            width: 100%;
+            background: transparent;
+            color: #000;
+            border: 2px solid #000;
+            padding: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .continue-shopping:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Empty Cart */
+        .empty-cart {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .empty-cart-icon {
+            font-size: 64px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .empty-cart h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .empty-cart p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 10000;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.error {
+            background: #dc3545;
+        }
+
+        .notification.warning {
+            background: #ffc107;
+            color: #000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cart-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cart-item {
+                grid-template-columns: 80px 1fr;
+                gap: 15px;
+            }
+
+            .item-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            .item-total {
+                grid-column: 1 / -1;
+                text-align: left;
+                margin-top: 10px;
+                padding-top: 10px;
+                border-top: 1px solid #eee;
+            }
+
+            .item-controls {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cart-title {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .cart-items, .cart-summary {
+                padding: 20px;
+            }
+
+            .quantity-control {
+                scale: 0.9;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Louis Vuitton</div>
+                <div class="breadcrumb">
+                    <a href="index.html">Trang Chủ</a>
+                    <span>></span>
+                    <span>Giỏ Hàng</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-section">
+        <div class="container">
+            <h1 class="cart-title">Giỏ Hàng Của Bạn</h1>
+            
+            <div id="cart-container">
+                <!-- Cart content will be inserted here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Notification Element -->
+    <div id="notification" class="notification"></div>
+
+    <script>
+        // Sample cart data (in real app, this would come from localStorage or API)
+        let cart = [
+            {
+                id: 1,
+                name: 'Túi Neverfull MM',
+                price: 35000000,
+                quantity: 1,
+                image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'
+            },
+            {
+                id: 2,
+                name: 'Ví Zippy',
+                price: 18500000,
+                quantity: 2,
+                image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'
+            },
+            {
+                id: 3,
+                name: 'Giày Sneaker Run Away',
+                price: 26700000,
+                quantity: 1,
+                image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'
+            }
+        ];
+
+        let discount = 0;
+        let shipping = 0;
+
+        function formatPrice(price) {
+            return price.toLocaleString('vi-VN') + ' VND';
+        }
+
+        function updateQuantity(productId, newQuantity) {
+            if (newQuantity <= 0) {
+                removeFromCart(productId);
+                return;
+            }
+
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity = newQuantity;
+                renderCart();
+                showNotification('Số lượng sản phẩm đã được cập nhật!', 'success');
+            }
+        }
+
+        function removeFromCart(productId) {
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            if (itemIndex > -1) {
+                const removedItem = cart[itemIndex];
+                cart.splice(itemIndex, 1);
+                renderCart();
+                showNotification(`${removedItem.name} đã được xóa khỏi giỏ hàng!`, 'warning');
+            }
+        }
+
+        function applyCoupon() {
+            const couponCode = document.getElementById('coupon-input').value.trim();
+            
+            if (!couponCode) {
+                showNotification('Vui lòng nhập mã giảm giá!', 'error');
+                return;
+            }
+
+            // Sample coupon codes
+            const coupons = {
+                'WELCOME10': 0.1,
+                'SUMMER20': 0.2,
+                'VIP30': 0.3
+            };
+
+            if (coupons[couponCode.toUpperCase()]) {
+                discount = coupons[couponCode.toUpperCase()];
+                renderCart();
+                showNotification(`Mã giảm giá ${couponCode.toUpperCase()} đã được áp dụng! Giảm ${discount * 100}%`, 'success');
+                document.getElementById('coupon-input').value = '';
+            } else {
+                showNotification('Mã giảm giá không hợp lệ!', 'error');
+            }
+        }
+
+        function calculateSubtotal() {
+            return cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        }
+
+        function calculateDiscount(subtotal) {
+            return subtotal * discount;
+        }
+
+        function calculateTotal() {
+            const subtotal = calculateSubtotal();
+            const discountAmount = calculateDiscount(subtotal);
+            return subtotal - discountAmount + shipping;
+        }
+
+        function renderEmptyCart() {
+            return `
+                <div class="empty-cart">
+                    <div class="empty-cart-icon">🛒</div>
+                    <h3>Giỏ hàng của bạn đang trống</h3>
+                    <p>Hãy khám phá những sản phẩm tuyệt vời của Louis Vuitton</p>
+                    <button class="checkout-btn" onclick="window.location.href='index.html'">
+                        Tiếp Tục Mua Sắm
+                    </button>
+                </div>
+            `;
+        }
+
+        function renderCartItems() {
+            if (cart.length === 0) {
+                return renderEmptyCart();
+            }
+
+            const subtotal = calculateSubtotal();
+            const discountAmount = calculateDiscount(subtotal);
+            const total = calculateTotal();
+
+            return `
+                <div class="cart-content">
+                    <div class="cart-items">
+                        <h3>Sản Phẩm (${cart.length})</h3>
+                        ${cart.map(item => `
+                            <div class="cart-item">
+                                <div class="item-image">
+                                    <img src="${item.image}" alt="${item.name}">
+                                </div>
+                                <div class="item-details">
+                                    <div class="item-name">${item.name}</div>
+                                    <div class="item-price">${formatPrice(item.price)}</div>
+                                    <div class="item-controls">
+                                        <div class="quantity-control">
+                                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                                            <input type="number" class="quantity-input" value="${item.quantity}" 
+                                                   onchange="updateQuantity(${item.id}, parseInt(this.value) || 0)" min="1">
+                                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                                        </div>
+                                        <button class="remove-btn" onclick="removeFromCart(${item.id})">Xóa</button>
+                                    </div>
+                                </div>
+                                <div class="item-total">
+                                    ${formatPrice(item.price * item.quantity)}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="cart-summary">
+                        <h3 class="summary-title">Tóm Tắt Đơn Hàng</h3>
+                        
+                        <div class="summary-row">
+                            <span>Tạm tính:</span>
+                            <span>${formatPrice(subtotal)}</span>
+                        </div>
+                        
+                        ${discount > 0 ? `
+                            <div class="summary-row">
+                                <span>Giảm giá (${(discount * 100).toFixed(0)}%):</span>
+                                <span style="color: #28a745;">-${formatPrice(discountAmount)}</span>
+                            </div>
+                        ` : ''}
+                        
+                        <div class="summary-row">
+                            <span>Phí vận chuyển:</span>
+                            <span>${shipping === 0 ? 'Miễn phí' : formatPrice(shipping)}</span>
+                        </div>
+                        
+                        <div class="summary-row total">
+                            <span>Tổng cộng:</span>
+                            <span>${formatPrice(total)}</span>
+                        </div>
+
+                        <div class="coupon-section">
+                            <input type="text" id="coupon-input" class="coupon-input" 
+                                   placeholder="Nhập mã giảm giá">
+                            <button class="coupon-btn" onclick="applyCoupon()">Áp Dụng</button>
+                            <div style="font-size: 12px; color: #666; margin-top: 10px;">
+                                Thử: WELCOME10, SUMMER20, VIP30
+                            </div>
+                        </div>
+
+                        <button class="checkout-btn" onclick="checkout()">
+                            Thanh Toán
+                        </button>
+                        
+                        <button class="continue-shopping" onclick="window.location.href='index.html'">
+                            Tiếp Tục Mua Sắm
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderCart() {
+            document.getElementById('cart-container').innerHTML = renderCartItems();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Giỏ hàng của bạn đang trống!', 'error');
+                return;
+            }
+
+            const total = calculateTotal();
+            const orderSummary = `
+Đơn hàng của bạn:
+
+${cart.map(item => `${item.name} x${item.quantity} - ${formatPrice(item.price * item.quantity)}`).join('\n')}
+
+${discount > 0 ? `Giảm giá: -${formatPrice(calculateDiscount(calculateSubtotal()))}\n` : ''}
+Tổng cộng: ${formatPrice(total)}
+
+Cảm ơn bạn đã mua sắm tại Louis Vuitton!
+            `;
+
+            alert(orderSummary);
+            
+            // In real app, redirect to payment page
+            showNotification('Chức năng thanh toán sẽ được triển khai soon!', 'success');
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Initialize cart
+        renderCart();
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
